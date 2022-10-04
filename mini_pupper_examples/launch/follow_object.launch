@@ -12,6 +12,9 @@
     <!--node name="sound_play_node" pkg="sound_play" type="soundplay_node.py" output="screen"/-->
 
     <group if="$(arg hardware_connected)">
-        <include file="$(find mini_pupper_bringup)/launch/bringup.launch" />
+        <include file="$(find mini_pupper_bringup)/launch/bringup.launch" >
+        <arg name="lidar_connected"      value="false"/>
+    </include>
+    
     </group>
 </launch>

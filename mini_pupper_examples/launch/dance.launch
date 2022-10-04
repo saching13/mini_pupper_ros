@@ -9,7 +9,10 @@
   <node pkg="mini_pupper_examples" type="pose_controller.py" name="pose_controller" output="screen"/>
 
   <group if="$(arg hardware_connected)">
-    <include file="$(find mini_pupper_bringup)/launch/bringup.launch" />
+    <include file="$(find mini_pupper_bringup)/launch/bringup.launch" >
+        <arg name="lidar_connected"      value="false"/>
+    </include>
+
   </group>
 </launch>
 
