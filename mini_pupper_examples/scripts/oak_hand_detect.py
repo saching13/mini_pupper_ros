@@ -77,7 +77,7 @@ def toward_obj(hand):
             print(f'Hand vector is {hand_vector}')
             vertical_vector = [0, 1] 
             vertical_vector = vertical_vector / np.linalg.norm(vertical_vector)
-            dot_product = np.dot(hand_vector, vertical_vector)
+            dot_product = np.dot(vertical_vector, hand_vector)
             angle = np.arccos(dot_product)
             # roll = np.arccos(dot_product)
         
