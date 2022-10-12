@@ -17,29 +17,6 @@ yaw_increment=0
 pitch_increment=0
 pose = Pose()
 
-#mobilenet object list
-#0: background
-#1: aeroplane
-#2: bicycle
-#3: bird
-#4: boat
-#5: bottle
-#6: bus
-#7: car
-#8: cat
-#9: chair
-#10: cow
-#11: diningtable
-#12: dog
-#13: horse
-#14: motorbike
-#15: person
-#16: pottedplant
-#17: sheep
-#18: sofa
-#19: train
-#20: tvmonitor
-
 def toward_obj(hand):
     global pose,roll,pitch,yaw,yaw_increment,pitch_increment
     rate = rospy.Rate(200) # 200hz
@@ -59,7 +36,8 @@ def toward_obj(hand):
 
     yaw_increment=(width/2 - middle_finger_mcp.x)*0.0002
     pitch_increment=-(height/2 - middle_finger_mcp.y)*0.0002
-
+    print(yaw_increment)
+    print(pitch_increment)
     # Forward follow routine
     if 0:
         if position.x > 1.0 and position.x < 3:
@@ -119,5 +97,5 @@ def listener():
     rospy.spin()
  
 if __name__ == '__main__':
-    pub_pose = rospy.Publisher('/body_pose', Pose, queue_size=10)
+    pub_pose = rospy.Publisher('/target_body_pose', Pose, queue_size=10)
     listener()
