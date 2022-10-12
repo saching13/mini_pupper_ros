@@ -81,7 +81,7 @@ def toward_obj(hand):
             angle = np.arccos(dot_product)
             # roll = np.arccos(dot_product)
         
-            print(f"Printing roll of the vectors = {math.degrees(angle)}")
+            print(f"Printing roll of the vectors = {math.degrees(angle) - 180}")
 
     yaw = yaw + yaw_increment
     #print(yaw_increment)
