@@ -8,8 +8,9 @@ from depthai_ros_msgs.msg import HandLandmarkArray, HandLandmark
 import math
 import numpy as np
 
-height = 300
-width = 300
+height = 1080
+width = 1920
+
 roll=0
 pitch=0
 yaw = 0
@@ -61,7 +62,7 @@ def toward_obj(hand):
             angle = np.arctan2(dot_product, det)
             # roll = np.arccos(dot_product)
         
-            print(f"Printing roll of the vectors = {math.degrees(angle)}")
+            # print(f"Printing roll of the vectors = {math.degrees(angle)}")
 
     yaw = yaw + yaw_increment
     #print(yaw_increment)
