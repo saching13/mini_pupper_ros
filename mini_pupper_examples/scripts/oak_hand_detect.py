@@ -80,7 +80,7 @@ def toward_obj(hand):
             dot_product = np.dot(vertical_vector, hand_vector)
             det = np.linalg.det([vertical_vector, hand_vector])
             # angle = np.arccos(dot_product)
-            angle = np.atan2(dot_product, det)
+            angle = np.arctan2(dot_product, det)
             # roll = np.arccos(dot_product)
         
             print(f"Printing roll of the vectors = {math.degrees(angle)}")
