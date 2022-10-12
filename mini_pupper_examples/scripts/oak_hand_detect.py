@@ -98,6 +98,7 @@ def toward_obj(hand):
     pose.orientation.z = sy * cp * cr - cy * sp * sr
 
     pub_pose.publish(pose)
+    print('Sendng pOse...')
     rate.sleep()
 
 def callback(data):
@@ -111,7 +112,7 @@ def callback(data):
     
 def listener():
     rospy.init_node('hand_detect', anonymous=True)
-    rospy.Subscriber("depthai/handss_tracklets", HandLandmarkArray, callback)
+    rospy.Subscriber("depthai/hand_tracklets", HandLandmarkArray, callback)
     rospy.spin()
  
 if __name__ == '__main__':
