@@ -46,7 +46,7 @@ def toward_obj(hand):
     yaw_increment = 0
     pitch_increment = 0
     
-    middlfe_finger_mcp = hand.landmark[9]
+    middle_finger_mcp = hand.landmark[9]
     position = hand.position
     # for i in hand.landmark:
     #     bb = i.bbox #BoundingBoxes
@@ -57,8 +57,8 @@ def toward_obj(hand):
     #     if(rr.id == obj_class):
     #         print(11111)
 
-    yaw_increment=(width/2 - middlfe_finger_mcp.x)*0.0002
-    pitch_increment=-(height/2 - middlfe_finger_mcp.y)*0.0002
+    yaw_increment=(width/2 - middle_finger_mcp.x)*0.0002
+    pitch_increment=-(height/2 - middle_finger_mcp.y)*0.0002
 
     # Forward follow routine
     if 0:
@@ -101,15 +101,17 @@ def toward_obj(hand):
     rate.sleep()
 
 def callback(data):
-    bounding_boxes = data
-    detections = bounding_boxes.detections
-    toward_obj(5,detections)
+    handArray = data
+    hands = handArray.landmarks
+    for hand in hands:
+        if hand.label == 'right':
+            toward_obj(hand)
     #toward_obj('cup',a)
     #print(a[0])
     
 def listener():
-    rospy.init_node('yolo_detect', anonymous=True)
-    rospy.Subscriber("/mobilenet_publisher/color/mobilenet_detections", Detection2DArray, callback)
+    rospy.init_node('hand_detect', anonymous=True)
+    rospy.Subscriber("depthai/handss_tracklets", HandLandmarkArray, callback)
     rospy.spin()
  
 if __name__ == '__main__':
