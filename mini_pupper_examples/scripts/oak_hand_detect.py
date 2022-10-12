@@ -73,9 +73,7 @@ def toward_obj(hand):
             wrist = hand.landmark[0]
             middle_finger_tip = hand.landmark[12]
             hand_vector = [middle_finger_tip.x - wrist.x, middle_finger_tip.y - wrist.y]
-            hand_vector = -1 * ( hand_vector / np.linalg.norm(hand_vector))
-            print(f'Hand vector is {hand_vector}')
-            # hand_vector = np.multiply(hand_vector, -1)
+            hand_vector = hand_vector / np.linalg.norm(hand_vector)
             print(f'Hand vector is {hand_vector}')
             vertical_vector = [0, 1] 
             vertical_vector = vertical_vector / np.linalg.norm(vertical_vector)
@@ -83,7 +81,7 @@ def toward_obj(hand):
             angle = np.arccos(dot_product)
             # roll = np.arccos(dot_product)
         
-            print(f"Printing roll of the vectors = {math.degrees(angle) - 180}")
+            print(f"Printing roll of the vectors = {math.degrees(angle)}")
 
     yaw = yaw + yaw_increment
     #print(yaw_increment)
