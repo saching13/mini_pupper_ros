@@ -75,7 +75,7 @@ def toward_obj(hand):
             hand_vector = [middle_finger_tip.x - wrist.x, middle_finger_tip.y - wrist.y]
             hand_vector = hand_vector / np.linalg.norm(hand_vector)
             print(f'Hand vector is {hand_vector}')
-            vertical_vector = [1, 0] 
+            vertical_vector = [-1, 0] 
             vertical_vector = vertical_vector / np.linalg.norm(vertical_vector)
             dot_product = np.dot(vertical_vector, hand_vector)
             det = np.linalg.det([vertical_vector, hand_vector])
