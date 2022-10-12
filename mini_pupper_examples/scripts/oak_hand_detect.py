@@ -72,8 +72,9 @@ def toward_obj(hand):
         if hand.gesture == "FIVE":
             wrist = hand.landmark[0]
             middle_finger_tip = hand.landmark[12]
-            hand_vector = [middle_finger_tip[0] - wrist[0], middle_finger_tip[1] - wrist[1]]
+            hand_vector = [middle_finger_tip.x - wrist.x, middle_finger_tip.y - wrist.y]
             hand_vector = hand_vector / np.linalg.norm(hand_vector)
+            print(f'Hand vector is {hand_vector}')
             vertical_vector = [0, 1] 
             vertical_vector = vertical_vector / np.linalg.norm(vertical_vector)
             dot_product = np.dot(hand_vector, vertical_vector)
