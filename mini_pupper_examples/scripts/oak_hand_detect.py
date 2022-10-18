@@ -8,8 +8,8 @@ from depthai_ros_msgs.msg import HandLandmarkArray, HandLandmark
 import math
 import numpy as np
 
-height = 1080
-width = 1920
+height = 648
+width = 1152
 
 roll=0
 pitch=0
